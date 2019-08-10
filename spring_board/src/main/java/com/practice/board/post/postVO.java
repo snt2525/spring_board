@@ -7,8 +7,37 @@ public class postVO {
 	public int post_num;
 	public String title;
 	public String content;
+	public Date updateDate;
 	public Date regdate;
-	public Date timestamp;
+	public String date;
+	
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public void setPost_num(int post_num) {
+		this.post_num = post_num;
+	}
 	
 	public String getId() {
 		return id;
@@ -29,6 +58,7 @@ public class postVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	public String getContent() {
 		return content;
 	}
@@ -36,14 +66,5 @@ public class postVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
-	public Date getRegdate() {
-		return regdate;
-	}
-
-	public Date getTimestamp() {
-		return timestamp;
-	}
-
 	
 }

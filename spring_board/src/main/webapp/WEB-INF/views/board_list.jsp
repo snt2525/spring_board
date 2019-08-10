@@ -5,19 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <title>게시판</title>
 </head>
 <tbody>	
+	<h1>게시판</h1>
 	<table>
         <colgroup>
-            <col style="width:5%;" />
-            <col style="width:auto;" />
-            <col style="width:15%;" />
-            <col style="width:10%;" />
-            <col style="width:10%;" />
+            <col style="width:50px;" />
+            <col style="width:100px;" />
+            <col style="width:100px;" />
+            <col style="width:150px;" />
         </colgroup>
         <thead>
-            <tr>
+            <tr colspan = "4">
                 <th>NO</th>
                 <th>글제목</th>
                 <th>작성자</th>
@@ -27,15 +29,19 @@
         <tbody>
             <c:choose>
                 <c:when test="${empty postList}" >
-                    <tr><td colspan="5" align="center">데이터가 없습니다.</td></tr>
+                    <tr><td colspan="4" align="center">데이터가 없습니다.</td></tr>
                 </c:when> 
                 <c:when test="${!empty postList}">
               <c:forEach var="list" items="${postList}">
-                  <tr>
+                  <tr>                                	  
                       <td><c:out value="${list.post_num}"/></td>
-                      <td><c:out value="${list.title}"/></td>
+                      
+                      <td><a href="#" onClick="contentView(<c:out value="${list.post_num}"/>)">
+                      	  <c:out value="${list.title}" />
+                      </a></td>
+                      
                       <td><c:out value="${list.id}"/></td>
-                      <td><c:out value="${list.regdate}"/></td>
+                      <td><c:out value="${list.date}"/></td>
                   </tr>
               </c:forEach>
           </c:when>
@@ -48,4 +54,9 @@
 </html>
 
 <script type="text/javascript">
+	function contentView(post_num){
+		var url = "/board/getContent";
+		url = url + "?post_num=" + post_num;
+		location.href = url;
+	}
 </script>

@@ -26,6 +26,7 @@ public class postDAO implements postDAOI {
 
 	@Override
 	public void insertBoard(postVO postVO) throws Exception {
+		sqlSession.insert("com.pratice.board.mapper.boardMapper.initID"); //자동 초기화
 		sqlSession.insert("com.pratice.board.mapper.boardMapper.insertBoard",postVO);
 	}
 

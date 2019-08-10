@@ -8,16 +8,16 @@
 	<!-- 게시판 리스트 -->
  	<select id = "getBoardList" resultType ="com.practice.board.post.postVO">
  		SELECT 
- 			id, post_num, title, content, timestamp
+ 			id, post_num, title, content, regdate
  		FROM
  			post
  	</select>
 
 	<!-- 특정 게시물 -->
 	<select id = "getBoardPost" resultType ="com.practice.board.post.postVO"
-	parameterType ="com.practice.board.post.postVO">
+	parameterType ="int">
 		SELECT
-			id, post_num, title, content, timestamp
+			id, post_num, title, content, regdate
 		FROM
 			post
 		WHERE	
@@ -26,29 +26,31 @@
 	
 	<!-- 게시물 업로드 -->
 	<insert id = "insertBoard" parameterType ="com.practice.board.post.postVO">
-		INSERT INTO post(id, title, content, regdate, timestamp)
+		INSERT INTO post(id, title, content, updatedate)
 		VALUES(
-			id = #{id},
-			title = #{title},
-			content = #{content},
-			regdate  = now(),
-			timestamp = now()
+			"${id}",
+			"${title}",
+		    "${content}",
+		    now()
 		)		
+	</insert>
+	
+	<insert id = "initID" >
+		ALTER TABLE post AUTO_INCREMENT = 1;
 	</insert>
 
 	<!-- 게시물 수정 -->
 	<update id = "updateBoard" parameterType = "com.practice.board.post.postVO">
 		UPDATE post SET
-			title = #{title},
-			content = #{content},
-			timestamp = now()
+			title = ${title},
+			content = ${content}
 		WHERE
-			post_num = #{post_num}
+			post_num = ${post_num}
 	</update>
 	
 	<!-- 게시물 삭제 -->
 	<delete id = "deleteBoard" parameterType = "int" >
-		DELETE FROM post WHERE post_num = #{post_num}
+		Delete FROM post WHERE post_num = #{post_num}
 	</delete>	
 </mapper>
 

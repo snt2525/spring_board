@@ -7,7 +7,7 @@ import com.practice.board.member.memberVO;
 
 @Service
 public class memberService implements memberServiceI{
-	
+	/*
 	@Autowired
 	memberVO memberVO;
 
@@ -27,5 +27,6 @@ public class memberService implements memberServiceI{
 	public boolean login() throws Exception {
 		// TODO Auto-generated method stub
 		return false;
-	}
+		
+		} */
 }
