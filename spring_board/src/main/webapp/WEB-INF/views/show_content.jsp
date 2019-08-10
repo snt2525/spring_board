@@ -9,7 +9,7 @@
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
 	
-<title>게시글 쓰기</title>
+<title>게시글  쓰기</title>
 </head>
 <body>
 	<script>
@@ -18,11 +18,12 @@
 	});
 	
 	function deletePost(post_num){	
-           if (confirm('삭제하시겠습니까?')) {
+          if (confirm('삭제하시겠습니까?')) 
+          {
        		var url = "/board/deletePost";
        		url = url + "?post_num=" + post_num;
        		location.href = url;
-           }        
+          }        
 	}
 	
 	$(document).on('click', '#btnUpdate', function(){

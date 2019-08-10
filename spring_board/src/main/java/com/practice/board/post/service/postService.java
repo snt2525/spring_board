@@ -36,9 +36,7 @@ public class postService implements postServiceI{
 
 	@Override
 	public void insertBoard(postVO postVO) throws Exception {
-		//System.out.print(postVO.id);  
-    	//System.out.print(postVO.title);
-    	//System.out.print(postVO.content); 
+		//System.out.print(postVO.id); 
 		postDAO.insertBoard(postVO);
 	}
 

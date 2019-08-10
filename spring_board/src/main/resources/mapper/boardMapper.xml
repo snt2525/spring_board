@@ -26,7 +26,8 @@
 	
 	<!-- 게시물 업로드 -->
 	<insert id = "insertBoard" parameterType ="com.practice.board.post.postVO">
-		INSERT INTO post(id, title, content, updatedate)
+		INSERT INTO 
+			post(id, title, content, updatedate)
 		VALUES(
 			"${id}",
 			"${title}",
@@ -41,7 +42,9 @@
 
 	<!-- 게시물 수정 -->
 	<update id = "updateBoard" parameterType = "com.practice.board.post.postVO">
-		UPDATE post SET
+		UPDATE 
+			post 
+		SET
 			title = ${title},
 			content = ${content}
 		WHERE
@@ -50,7 +53,10 @@
 	
 	<!-- 게시물 삭제 -->
 	<delete id = "deleteBoard" parameterType = "int" >
-		Delete FROM post WHERE post_num = #{post_num}
+		DELETE FROM 
+			post 
+		WHERE 
+			post_num = #{post_num}
 	</delete>	
 </mapper>
 
