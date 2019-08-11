@@ -29,7 +29,8 @@ public class memberService implements memberServiceI{
 
 	@Override
 	public boolean login(memberVO memberVO) throws Exception {
-		if(mem.getUserInfo(memberVO.id).equals(memberVO.pwd))
+		String check = mem.getUserInfo(memberVO.id);
+		if(check != null && check.equals(memberVO.pwd))
 		{
 			return true;
 		}

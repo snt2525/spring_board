@@ -36,15 +36,13 @@
 	<body>
 		<article>	
 			<div>
-				<h2>board Content</h2>	
+				<h2>[${boardContent.title}]</h2>	
 				<div>
 					<div class="title"> <c:out value="${boardContent.title}"/></div>	
 					<div>	
 						<div class="board_author">글쓴이: ${boardContent.id}</div>
 						<div class="board_date">날짜: ${boardContent.date}</div>
-					</div>
-					<div class="board_title">제목: ${boardContent.title}</div>
-					<div class="board_content">내용: ${boardContent.content}</div>
+						<div class="board_content">내용: ${boardContent.content}</div>
 				</div>
 	
 				<div style="margin-top : 20px">
@@ -52,7 +50,30 @@
 					<button type = "button" onClick = "deletePost(${boardContent.post_num})">삭제</button>
 					<button type="button" id="btnList">목록</button>
 				</div>
-			</div>			
+			</div>		
+			
+		<!-- Reply Form {s} -->
+			<div style="padding-top: 10px">
+				<form:form name="form" id="form" role="form" modelAttribute="commentVO" method="post">
+					<form:hidden path="id" id="id"/>
+					<div class="row">
+						<div class="col-sm-10">
+							<form:textarea path="comment" id="comment" rows="3" placeholder="댓글을 입력해 주세요"></form:textarea>
+						</div>
+						<div class="col-sm-2">
+							<form:input path="reg_id" id="reg_id" placeholder="댓글 작성자"></form:input>
+							<button type="button" id="btnReplySave" margin-top: 10px">저 장 </button>
+						</div>
+					</div>
+				</form:form>
+			</div>
+				<!-- Reply Form {e} -->
+	
+			<!-- Reply List {s}-->
+			<div style="padding-top: 10px">
+				<h6>Reply list</h6>
+				<div id="replyList"></div>	
+			</div>		
 		</article>
 	</body>
 </html>

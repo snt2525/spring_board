@@ -17,7 +17,7 @@
 						<label>아이디:</label>
 						<input type = "text" name="id" id = "id" placeholder = "UserID">
 					</div>				
-	
+						
 					<div style="margin-top : 5px">
 						<label>비밀번호:</label>
 						<input type ="text" name="pwd" id = "pwd" placeholder = "User Password" ></textarea>

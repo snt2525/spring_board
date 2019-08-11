@@ -8,10 +8,14 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <title>게시판</title>
+	<div>
+		${sessionScope.loginId}님 환영합니다.
+		<button onClick = "location='/board/logout'">로그아웃</button>
+	</div>
 </head>
-<tbody>	
-	<h1>게시판</h1>
-	<table>
+<tbody>
+	<h1 style="margin-left :35%">게시판</h1>
+	<table style="margin-left :30%">
         <colgroup>
             <col style="width:50px;" />
             <col style="width:100px;" />
@@ -49,7 +53,7 @@
         </tbody>
     </table>
     <br>
-      <button onClick = "location='/board/newPost'" >글쓰기</a>
+      <button onClick = "location='/board/newPost'" style="margin-left :30%">글쓰기</a>
  </tbody>
 </html>
 

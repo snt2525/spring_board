@@ -39,10 +39,10 @@
 	
 
 <script>
-	var check = false;
+	var check = 0;
 	$(document).on('click', '#btnBack', function(e){
 		e.preventDefault();
-		location.href="/board/login";
+		location.href="/board/join";
 	});
 	
 	$(document).on('click', '#btnJoin', function(e){
@@ -52,15 +52,17 @@
 	
 	//회원가입을 할 때 사용자의 id가 중복이 됬는 지 확인하는 함수
 	function same_id_check(){
-		var check_id = $("#id").val();
-		
 	    $.ajax({
-	        url: "/login/check_same_id",
+	        url: "${pageContext.request.contextPath}/check_same_id",
 	        type: "GET",
-	        data: "id=" + check_id,
+	        async: true,
+	        data: "check_id=" + $("#id").val() ,
 	        dataType: text,
-	        success: function(data){        	
-	           alert("존재하는 아이디 입니다.")
+	        success: function(data){
+	           	var msg = '${msg}';
+	        	alert(msg);
+	        	
+	        	check = '${check}';        	
 	        },
 	        error: function(){
 	            alert("Database Connection Error");
