@@ -42,7 +42,7 @@
 	var check = 0;
 	$(document).on('click', '#btnBack', function(e){
 		e.preventDefault();
-		location.href="/board/join";
+		location.href="/board/login";
 	});
 	
 	$(document).on('click', '#btnJoin', function(e){

@@ -15,7 +15,7 @@ public class commentService implements commentServiceI{
 	commentDAO commentDAO;
 	
 	@Override
-	public void write_comment(commentVO commentVO) throws Exception {
+	public void save_comment(commentVO commentVO) throws Exception {
 		commentDAO.write_comment(commentVO);
 	}
 

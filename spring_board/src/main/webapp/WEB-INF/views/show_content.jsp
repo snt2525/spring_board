@@ -9,6 +9,7 @@
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 	crossorigin="anonymous"></script>
 	
+<script type="text/javascript" src="show_comment.js?ver=1"></script>
 <title>게시글  쓰기</title>
 </head>
 <body>
@@ -50,28 +51,25 @@
 					<button type = "button" onClick = "deletePost(${boardContent.post_num})">삭제</button>
 					<button type="button" id="btnList">목록</button>
 				</div>
-			</div>		
+			</div><br>	
 			
 		<!-- Reply Form {s} -->
 			<div style="padding-top: 10px">
-				<form:form name="form" id="form" role="form" modelAttribute="commentVO" method="post">
-					<form:hidden path="id" id="id"/>
+				<form name="form" id="form" action="/board/saveComment" method="post">
+				<text path="reg_id" id="reg_id">${sessionScope.loginId}</text>
 					<div class="row">
-						<div class="col-sm-10">
-							<form:textarea path="comment" id="comment" rows="3" placeholder="댓글을 입력해 주세요"></form:textarea>
-						</div>
-						<div class="col-sm-2">
-							<form:input path="reg_id" id="reg_id" placeholder="댓글 작성자"></form:input>
-							<button type="button" id="btnReplySave" margin-top: 10px">저 장 </button>
-						</div>
+						<input type =text name="comment_content" id="comment_content" rows="3" placeholder="댓글을 입력해 주세요" />
+						<input type= submit style= "margin-top: 10px" value ="저장"/>
+						<input type= hidden name = "id" value="${boardContent.id}">
+						<input type= hidden name = "post_num" value="${boardContent.post_num}">
 					</div>
-				</form:form>
+				</form>
 			</div>
 				<!-- Reply Form {e} -->
 	
 			<!-- Reply List {s}-->
 			<div style="padding-top: 10px">
-				<h6>Reply list</h6>
+				<h5>Reply list</h5>
 				<div id="replyList"></div>	
 			</div>		
 		</article>
